@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4132442611105624847}
   - component: {fileID: 5850717804207472627}
   - component: {fileID: 6564230203570715595}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Powerup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JumpStrength: 10
   runner: {fileID: 0}
+  spawner: {fileID: 0}
 --- !u!114 &5850717804207472627
 MonoBehaviour:
   m_ObjectHideFlags: 0
