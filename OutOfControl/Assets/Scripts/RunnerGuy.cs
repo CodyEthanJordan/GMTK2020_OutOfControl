@@ -9,11 +9,18 @@ namespace Assets.Scripts
 {
     public class RunnerGuy : MonoBehaviour
     {
+        public float Speed = 1;
+
         private Rigidbody2D rb;
 
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
+        }
+
+        private void FixedUpdate()
+        {
+            rb.AddForce(Vector2.right * Speed);
         }
 
 
