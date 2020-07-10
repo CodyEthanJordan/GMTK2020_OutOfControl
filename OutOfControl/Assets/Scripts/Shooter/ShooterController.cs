@@ -5,17 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Shooter
 {
-    public class RunnerGuy : MonoBehaviour
+    public class ShooterController : MonoBehaviour
     {
+
         private Rigidbody2D rb;
 
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
         }
-
-
     }
 }
