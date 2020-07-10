@@ -116,7 +116,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2434196406898024102}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1ffae564d37c9b4438291a549864d143, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
-  JumpPower: 1
-  JumpTimer: 3
+  JumpPower: 5
+  JumpTime: 3
+  TurnaroundTime: 3
   Direction: 1
