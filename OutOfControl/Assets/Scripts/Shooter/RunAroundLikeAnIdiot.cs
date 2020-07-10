@@ -29,7 +29,7 @@ namespace Assets.Scripts.Shooter
             timer -= Time.fixedDeltaTime;
             if(timer <= 0)
             {
-                rb.AddForce(Vector2.up * JumpPower);
+                rb.AddForce(Vector2.up * JumpPower, ForceMode2D.Impulse);
                 timer = UnityEngine.Random.Range(JumpTimer / 2, 2 * JumpTimer);
             }
         }

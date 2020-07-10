@@ -12,5 +12,17 @@ namespace Assets.Scripts.Shooter
         public Transform[] SpawnPoints;
         public GameObject PowerupPrefab;
 
+        public void HasDied(Powerup p)
+        {
+            Spawn();
+        }
+
+        public void Spawn()
+        {
+            var pos = SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Length - 1)].position;
+            var go = Instantiate(PowerupPrefab, pos, Quaternion.identity);
+            go.transform.SetParent(this.transform);
+        }
+
     }
 }

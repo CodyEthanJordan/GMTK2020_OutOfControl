@@ -25,10 +25,13 @@ namespace Assets.Scripts.Shooter
         private Vector2 move = Vector2.zero;
         private bool jump = false;
         private float shootTimer = 0;
+        private Vector3 spawnPoint;
+        private bool goingRight = true;
 
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
+            spawnPoint = bulletSpawn.transform.position;
         }
 
         private void Update()
@@ -48,6 +51,7 @@ namespace Assets.Scripts.Shooter
 
                 jump = false;
             }
+
         }
 
         public bool Grounded
@@ -70,6 +74,15 @@ namespace Assets.Scripts.Shooter
             float y = Input.GetAxisRaw("Vertical");
             move = new Vector2(x, 0).normalized;
 
+            if(x >= 0.2)
+            {
+                goingRight = true;
+            }
+            else if (x <= -0.2)
+            {
+                goingRight = false;
+            }
+
             if(Input.GetButtonDown("Jump"))
             {
                 jump = true;
@@ -79,8 +92,27 @@ namespace Assets.Scripts.Shooter
             if(Input.GetButton("Fire1") && shootTimer <= 0)
             {
                 shootTimer = ShootSpeed;
-                var go = Instantiate(BulletPrefab, bulletSpawn.transform.position, Quaternion.identity);
-                go.GetComponent<Rigidbody2D>().AddForce(Vector2.right * BulletSpeed, ForceMode2D.Impulse);
+                Vector3 pos;
+                Debug.Log(goingRight);
+                if(goingRight)
+                {
+                    pos = bulletSpawn.transform.position;
+                }
+                else
+                {
+                    pos = -this.transform.position + bulletSpawn.transform.position;
+                    pos = this.transform.position - 2 * pos;
+                }
+                var go = Instantiate(BulletPrefab, pos, Quaternion.identity);
+                if(goingRight)
+                {
+                    go.GetComponent<Rigidbody2D>().AddForce(Vector2.right * BulletSpeed, ForceMode2D.Impulse);
+                }
+                else
+                {
+
+                    go.GetComponent<Rigidbody2D>().AddForce(Vector2.left * BulletSpeed, ForceMode2D.Impulse);
+                }
                 go.transform.SetParent(this.transform.parent);
             }
         }
