@@ -11,15 +11,20 @@ namespace Assets.Scripts.Shooter
     {
         public float Speed = 10;
         public float Jump = 10;
+        public float ShootSpeed = 0.5f;
+        public float BulletSpeed = 10;
         public GameObject BulletPrefab;
 
         [SerializeField]
         private Transform groundCheck;
+        [SerializeField]
+        private Transform bulletSpawn;
 
         private Rigidbody2D rb;
 
         private Vector2 move = Vector2.zero;
         private bool jump = false;
+        private float shootTimer = 0;
 
         private void Start()
         {
@@ -68,6 +73,15 @@ namespace Assets.Scripts.Shooter
             if(Input.GetButtonDown("Jump"))
             {
                 jump = true;
+            }
+
+            shootTimer -= Time.deltaTime;
+            if(Input.GetButton("Fire1") && shootTimer <= 0)
+            {
+                shootTimer = ShootSpeed;
+                var go = Instantiate(BulletPrefab, bulletSpawn.transform.position, Quaternion.identity);
+                go.GetComponent<Rigidbody2D>().AddForce(Vector2.right * BulletSpeed, ForceMode2D.Impulse);
+                go.transform.SetParent(this.transform.parent);
             }
         }
     }
