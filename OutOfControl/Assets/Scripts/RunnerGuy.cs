@@ -23,6 +23,11 @@ namespace Assets.Scripts
             rb.AddForce(Vector2.right * Speed);
         }
 
+        public void Jump(float strength)
+        {
+            rb.AddForce(Vector2.up * strength, ForceMode2D.Impulse);
+        }
+
 
     }
 }

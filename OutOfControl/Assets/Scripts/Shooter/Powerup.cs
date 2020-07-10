@@ -9,5 +9,22 @@ namespace Assets.Scripts.Shooter
 {
     public class Powerup : MonoBehaviour
     {
+        public float JumpStrength = 10;
+
+        [SerializeField]
+        private RunnerGuy runner;
+
+        private void Start()
+        {
+            if(runner is null)
+            {
+                runner = GameObject.Find("Train").GetComponent<RunnerGuy>();
+            }
+        }
+
+        private void OnDestroy()
+        {
+            runner.Jump(JumpStrength);   
+        }
     }
 }
