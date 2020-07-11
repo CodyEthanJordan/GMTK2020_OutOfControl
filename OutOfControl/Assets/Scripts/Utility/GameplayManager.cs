@@ -20,6 +20,7 @@ public class GameplayManager : MonoSingleton<GameplayManager>
         camPos = CamRunner.transform.position;
         startingLine = Runner.transform.position;
 
+        Runner.BaseSpeed = Speed;
         Runner.SetSpeed(Speed);
         CamRunner.SetSpeed(Speed);
     }

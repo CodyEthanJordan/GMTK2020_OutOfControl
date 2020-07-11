@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7223362949216995753}
   - component: {fileID: 9104530194350796526}
   m_Layer: 20
-  m_Name: TrainKnight
+  m_Name: Shooter
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,8 +102,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -62390771
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2539235481941961364, guid: 3012f45f4fe1e6b44822872354025ba2,
     type: 3}
@@ -180,8 +180,11 @@ MonoBehaviour:
   Jump: 10
   ShootSpeed: 0.01
   BulletSpeed: 15
+  KnockbackStrength: 0
   BulletPrefab: {fileID: 2648670623169741442, guid: 4230a3295fa834e48ae8764d39690d60,
     type: 3}
+  ControlLossTime: 1
+  InControl: 1
   groundCheck: {fileID: 7027215335129374431}
   bulletSpawn: {fileID: 5841724527730406339}
 --- !u!1 &8622894724704885023
