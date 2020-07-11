@@ -114,6 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   Strength: 2
+  PopupPrefab: {fileID: 4993922494600166365, guid: 6224d786a9724ba43a5691ebc9696b01,
+    type: 3}
   runner: {fileID: 0}
   spawner: {fileID: 0}
 --- !u!50 &4446456601562893873
