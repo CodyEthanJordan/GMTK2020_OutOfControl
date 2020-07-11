@@ -300,7 +300,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 67fca58a27f41b347be5ab5a8d2fcc8e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.009901984, g: 0, b: 0.13207549, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3353,8 +3353,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978622655}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1548309, y: 3.32026, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.7, y: 3.78, z: 0}
+  m_LocalScale: {x: 0.6221717, y: 0.6221717, z: 0.6221717}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
@@ -3405,7 +3405,7 @@ MonoBehaviour:
   Runner: {fileID: 153620676}
   CamRunner: {fileID: 1044857851}
   FadeToBlack: {fileID: 1576349508}
-  LevelNumer: 0
+  LevelNumber: 0
   RestartWaitTime: 1
   Speed: 1.5
 --- !u!1 &999181452
