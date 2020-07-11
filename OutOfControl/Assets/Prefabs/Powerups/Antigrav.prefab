@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1018787984840937817}
   - component: {fileID: 6642285280130054797}
   - component: {fileID: -7318530516914813955}
+  - component: {fileID: 3053323751419873782}
   m_Layer: 20
   m_Name: Antigrav
   m_TagString: Untagged
@@ -153,3 +154,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 1
   HP: 1
+--- !u!114 &3053323751419873782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8166638854211476249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4646cb387419eaf4d8e419ed3920a551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Power: 3
+  ForceTimer: 4
