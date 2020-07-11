@@ -8625,7 +8625,7 @@ PrefabInstance:
     - target: {fileID: 7223362949216995756, guid: 14cac1a9cd8eb1d47b2666d775163927,
         type: 3}
       propertyPath: m_Name
-      value: TrainKnight
+      value: Shooter
       objectReference: {fileID: 0}
     - target: {fileID: 7223362949216995758, guid: 14cac1a9cd8eb1d47b2666d775163927,
         type: 3}
