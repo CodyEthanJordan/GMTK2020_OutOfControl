@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce703f9216395249a0704b3654b9c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runAroundLikeAnIdiot: 1
   Speed: 1
   JumpPower: 5
   JumpTime: 3

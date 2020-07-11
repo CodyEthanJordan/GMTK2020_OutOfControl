@@ -3066,6 +3066,10 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919005914, guid: df49a24a62598084f983f58b876796c0, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 327a573cdacc37f44b41e315317a0f2a, type: 2}
     - target: {fileID: 1803416133600133352, guid: df49a24a62598084f983f58b876796c0,
         type: 3}
       propertyPath: m_Color.r
@@ -3224,6 +3228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: JumpPower
       value: 55.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564230203570715595, guid: 0be5cfbc76b6b1346851e3cd18ca8f53,
+        type: 3}
+      propertyPath: runAroundLikeAnIdiot
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0be5cfbc76b6b1346851e3cd18ca8f53, type: 3}
