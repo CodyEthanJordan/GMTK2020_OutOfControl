@@ -27,5 +27,11 @@ namespace Assets.Scripts.Utility
                 Text.ShowText(Message);
             }
         }
+
+        private void OnDrawGizmos()
+        {
+            var collider = GetComponent<BoxCollider2D>();
+            Gizmos.DrawWireCube(this.transform.position, new Vector3(collider.size.x, collider.size.y, 1));
+        }
     }
 }
