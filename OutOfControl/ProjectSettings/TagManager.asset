@@ -27,7 +27,7 @@ TagManager:
   - 
   - 
   - 
-  - Train
+  - Runner
   - Shooter
   - 
   - 
@@ -43,4 +43,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 743918521
+    locked: 0
+  - name: Tiles
+    uniqueID: 1269212091
+    locked: 0
+  - name: Splats
+    uniqueID: 1690960407
+    locked: 0
+  - name: Characters
+    uniqueID: 4232576525
+    locked: 0
+  - name: Effects
+    uniqueID: 2112565831
     locked: 0

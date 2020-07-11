@@ -13,6 +13,8 @@ namespace Assets.Scripts.Utility
     {
         public int Steps = 10;
 
+        private float timer = float.PositiveInfinity;
+
         private TextMeshProUGUI text;
 
         private void Start()
@@ -21,8 +23,18 @@ namespace Assets.Scripts.Utility
             //ShowText("You've met with a terrible fate haven't you");
         }
 
-        public void ShowText(string message)
+        private void Update()
         {
+            timer -= Time.deltaTime;
+            if(timer <= 0)
+            {
+                text.text = "";
+            }
+        }
+
+        public void ShowText(string message, float time=3)
+        {
+            timer = time;
             StartCoroutine(FadeIn(message));
         }
 
