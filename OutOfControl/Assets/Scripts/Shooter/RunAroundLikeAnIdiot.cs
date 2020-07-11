@@ -9,6 +9,7 @@ namespace Assets.Scripts.Shooter
 {
     public class RunAroundLikeAnIdiot : MonoBehaviour
     {
+        public bool runAroundLikeAnIdiot;
         public float Speed = 10;
         public float JumpPower = 10;
         public float JumpTimer = 3;
@@ -29,7 +30,7 @@ namespace Assets.Scripts.Shooter
             timer -= Time.fixedDeltaTime;
             if(timer <= 0)
             {
-                rb.AddForce(Vector2.up * JumpPower, ForceMode2D.Impulse);
+                if (runAroundLikeAnIdiot) rb.AddForce(Vector2.up * JumpPower, ForceMode2D.Impulse);
                 timer = UnityEngine.Random.Range(JumpTimer / 2, 2 * JumpTimer);
             }
         }
