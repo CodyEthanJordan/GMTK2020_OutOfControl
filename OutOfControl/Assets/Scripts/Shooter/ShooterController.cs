@@ -63,8 +63,12 @@ namespace Assets.Scripts.Shooter
                 {
                     return false;
                 }
+                else if(hit.Any(h => h.gameObject.CompareTag("Terrain")))
+                {
+                    return true;
+                }
 
-                return true;
+                return false;
             }
         }
 
@@ -113,7 +117,6 @@ namespace Assets.Scripts.Shooter
 
                     go.GetComponent<Rigidbody2D>().AddForce(Vector2.left * BulletSpeed, ForceMode2D.Impulse);
                 }
-                go.transform.SetParent(this.transform.parent);
             }
         }
     }
