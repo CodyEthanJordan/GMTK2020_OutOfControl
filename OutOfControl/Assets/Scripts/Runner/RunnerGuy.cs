@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Assets.Scripts.Shooter;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using static Assets.Scripts.Shooter.Powerup;
 
 namespace Assets.Scripts.Runner
 {
@@ -26,6 +28,21 @@ namespace Assets.Scripts.Runner
         public void Jump(float strength)
         {
             rb.AddForce(Vector2.up * strength, ForceMode2D.Impulse);
+        }
+
+        public void ActivatePowerup(PowerupType type, Powerup power)
+        {
+            switch (type)
+            {
+                case PowerupType.Jump:
+                    Jump(power.JumpStrength * rb.gravityScale);
+                    break;
+                case PowerupType.Antigrav:
+                    rb.gravityScale *= -1;
+                    break;
+                default:
+                    break;
+            }
         }
 
 

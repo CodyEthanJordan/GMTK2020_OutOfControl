@@ -25,6 +25,9 @@ namespace Assets.Scripts.Utility
         {
             camPos = CamRunner.transform.position;
             startingLine = Runner.transform.position;
+
+            Runner.Speed = Speed;
+            CamRunner.Speed = Speed;
         }
 
         public void RestartLevel()

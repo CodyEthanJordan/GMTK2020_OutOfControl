@@ -4,24 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using static Assets.Scripts.Shooter.Powerup;
 
 namespace Assets.Scripts.Shooter
 {
     public class Spawner : MonoBehaviour
     {
-        public Transform[] SpawnPoints;
-        public GameObject PowerupPrefab;
+        public List<Transform> SpawnPoints = new List<Transform>();
+        public Powerup[] Powerups;
 
-        public void HasDied(Powerup p)
+        private void Start()
         {
-            Spawn();
+            foreach (Transform child in this.transform)
+            {
+                SpawnPoints.Add(child);
+            }
+
+            Spawn(PowerupType.Jump);
+            Spawn(PowerupType.Antigrav);
         }
 
-        public void Spawn()
+        public void HasDied(Powerup dead)
         {
-            var pos = SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Length - 1)].position;
-            var go = Instantiate(PowerupPrefab, pos, Quaternion.identity);
+            Spawn(Powerups.First(p => p.Type == dead.Type).gameObject);
+        }
+
+        public void Spawn(PowerupType type)
+        {
+            Spawn(Powerups.First(p => p.Type == type).gameObject);
+        }
+
+        public void Spawn(GameObject prefab)
+        {
+            var pos = SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Count - 1)].position;
+            var go = Instantiate(prefab, pos, Quaternion.identity);
             go.transform.SetParent(this.transform);
+            var randomForce = UnityEngine.Random.insideUnitCircle * 3;
+            go.GetComponent<Rigidbody2D>().AddForce(randomForce, ForceMode2D.Impulse);
         }
 
     }
