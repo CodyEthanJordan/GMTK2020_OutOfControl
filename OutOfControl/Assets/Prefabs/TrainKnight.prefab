@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692827984226115541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46, y: 0, z: 0}
+  m_LocalPosition: {x: 0.475, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7223362949216995758}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 9104530194350796526}
   m_Layer: 20
   m_Name: TrainKnight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 7223362949216995756}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c768f0c35d2dc1743acae44e55faa73b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -178,8 +178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   Jump: 10
-  ShootSpeed: 0.5
-  BulletSpeed: 10
+  ShootSpeed: 0.01
+  BulletSpeed: 15
   BulletPrefab: {fileID: 2648670623169741442, guid: 4230a3295fa834e48ae8764d39690d60,
     type: 3}
   groundCheck: {fileID: 7027215335129374431}

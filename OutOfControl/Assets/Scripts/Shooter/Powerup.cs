@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Runner;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace Assets.Scripts.Shooter
         {
             if(runner is null)
             {
-                runner = GameObject.Find("Train").GetComponent<RunnerGuy>();
+                runner = GameObject.Find("Runner").GetComponent<RunnerGuy>();
             }
             if(spawner is null)
             {

@@ -93,11 +93,10 @@ namespace Assets.Scripts.Shooter
             }
 
             shootTimer -= Time.deltaTime;
-            if(Input.GetButton("Fire1") && shootTimer <= 0)
+            if(Input.GetButton("Fire") && shootTimer <= 0)
             {
                 shootTimer = ShootSpeed;
                 Vector3 pos;
-                Debug.Log(goingRight);
                 if(goingRight)
                 {
                     pos = bulletSpawn.transform.position;

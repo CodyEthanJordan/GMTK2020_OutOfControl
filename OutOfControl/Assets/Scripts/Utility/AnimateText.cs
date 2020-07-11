@@ -18,7 +18,7 @@ namespace Assets.Scripts.Utility
         private void Start()
         {
             text = GetComponent<TextMeshProUGUI>();
-            ShowText("You've met with a terrible fate haven't you");
+            //ShowText("You've met with a terrible fate haven't you");
         }
 
         public void ShowText(string message)

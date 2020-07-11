@@ -15,9 +15,9 @@ namespace Assets.Scripts.Shooter
         private void OnCollisionEnter2D(Collision2D collision)
         {
             var hp = collision.gameObject.GetComponent<HitPoints>();
-            if(hp != null)
+            if (hp != null)
             {
-                if(collision.gameObject.CompareTag("Player"))
+                if (collision.gameObject.CompareTag("Player"))
                 {
                     if (CanHitPlayer)
                     {
@@ -30,7 +30,17 @@ namespace Assets.Scripts.Shooter
                 }
             }
 
-            Destroy(this.gameObject);
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                if (CanHitPlayer)
+                {
+                    Destroy(this.gameObject);
+                }
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }
