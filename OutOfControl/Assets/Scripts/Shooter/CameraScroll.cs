@@ -9,19 +9,23 @@ namespace Assets.Scripts.Shooter
 {
     public class CameraScroll : MonoBehaviour
     {
-        public float Speed = 5;
+        public GameObject TargetToFollow;
+        private CameraTrack cameraTrack; 
 
-        private void Update()
-        {
-            this.transform.position += new Vector3(1, 0, 0) * Speed * Time.deltaTime;
+        private void Awake() {
+            if (cameraTrack == null) cameraTrack = TargetToFollow.GetComponent<CameraTrack>();
+        }
+
+        private void Update() {
+            this.transform.position = TargetToFollow.transform.position;
         }
 
         public void Stop() {
-            Speed = 0;
+            cameraTrack.Stop();
         }
 
         public void SetSpeed(float speed) {
-            Speed = speed;
+            cameraTrack.SetSpeed(speed);
         }
     }
 }
