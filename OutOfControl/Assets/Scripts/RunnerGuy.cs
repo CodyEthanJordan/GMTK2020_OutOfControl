@@ -20,7 +20,7 @@ namespace Assets.Scripts
 
         private void FixedUpdate()
         {
-            rb.AddForce(Vector2.right * Speed);
+            rb.velocity = new Vector2(Speed, rb.velocity.y);
         }
 
         public void Jump(float strength)

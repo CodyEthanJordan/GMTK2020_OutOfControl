@@ -13,6 +13,8 @@ namespace Assets.Scripts.Shooter
 
         [SerializeField]
         private RunnerGuy runner;
+        [SerializeField]
+        private Spawner spawner;
 
         private void Start()
         {
@@ -20,11 +22,16 @@ namespace Assets.Scripts.Shooter
             {
                 runner = GameObject.Find("Train").GetComponent<RunnerGuy>();
             }
+            if(spawner is null)
+            {
+                spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
+            }
         }
 
         private void OnDestroy()
         {
-            runner.Jump(JumpStrength);   
+            runner.Jump(JumpStrength);
+            spawner.HasDied(this);
         }
     }
 }
