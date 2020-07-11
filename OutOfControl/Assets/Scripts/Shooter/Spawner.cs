@@ -10,14 +10,14 @@ namespace Assets.Scripts.Shooter
 {
     public class Spawner : MonoBehaviour
     {
-        public List<Transform> SpawnPoints = new List<Transform>();
+        public List<Transform> SpawnPoint = new List<Transform>();
         public Powerup[] Powerups;
 
         private void Start()
         {
             foreach (Transform child in this.transform)
             {
-                SpawnPoints.Add(child);
+                SpawnPoint.Add(child);
             }
 
             Spawn(PowerupType.Jump);
@@ -36,7 +36,7 @@ namespace Assets.Scripts.Shooter
 
         public void Spawn(GameObject prefab)
         {
-            var pos = SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Count - 1)].position;
+            var pos = SpawnPoint[UnityEngine.Random.Range(0, SpawnPoint.Count - 1)].position;
             var go = Instantiate(prefab, pos, Quaternion.identity);
             go.transform.SetParent(this.transform);
             var randomForce = UnityEngine.Random.insideUnitCircle * 3;

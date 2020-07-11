@@ -35,10 +35,14 @@ namespace Assets.Scripts.Runner
             switch (type)
             {
                 case PowerupType.Jump:
-                    Jump(power.JumpStrength * rb.gravityScale);
+                    Jump(power.Strength * rb.gravityScale);
                     break;
                 case PowerupType.Antigrav:
                     rb.gravityScale *= -1;
+                    break;
+                case PowerupType.Dash:
+                    var pos2d = new Vector2(this.transform.position.x, this.transform.position.y);
+                    rb.MovePosition(Vector2.right * power.Strength + pos2d);
                     break;
                 default:
                     break;

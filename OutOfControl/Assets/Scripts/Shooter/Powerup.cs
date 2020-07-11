@@ -11,8 +11,7 @@ namespace Assets.Scripts.Shooter
     public class Powerup : MonoBehaviour
     {
         public PowerupType Type;
-        public float JumpStrength = 10;
-
+        public float Strength = 10;
 
         [SerializeField]
         private RunnerGuy runner;
@@ -40,7 +39,8 @@ namespace Assets.Scripts.Shooter
         public enum PowerupType
         {
             Jump,
-            Antigrav
+            Antigrav,
+            Dash,
         }
     }
 }

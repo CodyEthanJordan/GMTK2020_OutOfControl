@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 5850717804207472627}
   - component: {fileID: 6564230203570715595}
   m_Layer: 20
-  m_Name: Powerup
-  m_TagString: Untagged
+  m_Name: Jump
+  m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,7 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c8684949f9ebba4995a257d9c838109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpStrength: 10
+  Type: 0
+  Strength: 10
   runner: {fileID: 0}
   spawner: {fileID: 0}
 --- !u!114 &5850717804207472627
