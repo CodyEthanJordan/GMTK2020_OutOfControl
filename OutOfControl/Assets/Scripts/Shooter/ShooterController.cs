@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,10 @@ namespace Assets.Scripts.Shooter
         public float Jump = 10;
         public float ShootSpeed = 0.5f;
         public float BulletSpeed = 10;
+        public float KnockbackStrength;
         public GameObject BulletPrefab;
+        public float ControlLossTime = 1;
+        public bool InControl = true;
 
         [SerializeField]
         private Transform groundCheck;
@@ -21,22 +25,28 @@ namespace Assets.Scripts.Shooter
         private Transform bulletSpawn;
 
         private Rigidbody2D rb;
+        private SpriteRenderer sr;
 
         private Vector2 move = Vector2.zero;
         private bool jump = false;
         private float shootTimer = 0;
+        private float controlTimer = float.NegativeInfinity;
         private Vector3 spawnPoint;
         private bool goingRight = true;
 
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
+            sr = GetComponent<SpriteRenderer>();
             spawnPoint = bulletSpawn.transform.position;
         }
 
         private void Update()
         {
-            HandleInput();
+            if(InControl)
+            {
+                HandleInput();
+            }
         }
 
         private void FixedUpdate()
@@ -51,7 +61,20 @@ namespace Assets.Scripts.Shooter
 
                 jump = false;
             }
+        }
+        
+        public void OutOfControl()
+        {
+            sr.color = Color.red;
+            InControl = false;
+            StartCoroutine(RegainingControl());
+        }
 
+        IEnumerator RegainingControl()
+        {
+            yield return new WaitForSeconds(ControlLossTime);
+            sr.color = Color.white;
+            InControl = true;
         }
 
         public bool Grounded
@@ -116,6 +139,17 @@ namespace Assets.Scripts.Shooter
 
                     go.GetComponent<Rigidbody2D>().AddForce(Vector2.left * BulletSpeed, ForceMode2D.Impulse);
                 }
+            }
+
+        }
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if(collision.gameObject.CompareTag("Powerup") && InControl)
+            {
+                var p = collision.gameObject;
+                OutOfControl();
+                var knockAway = (collision.gameObject.transform.position - this.transform.position).normalized * KnockbackStrength;
+                p.GetComponent<Rigidbody2D>().AddForce(knockAway, ForceMode2D.Impulse);
             }
         }
     }
