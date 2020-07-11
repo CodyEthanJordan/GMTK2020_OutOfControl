@@ -29,7 +29,6 @@ namespace Assets.Scripts.Shooter
         public void HasDied(Powerup dead)
         {
             Spawn(Powerups.First(p => p.Type == dead.Type).gameObject);
-            Spawn(Powerups.First(p => p.Type == dead.Type).gameObject);
         }
 
         public void Spawn(PowerupType type)
