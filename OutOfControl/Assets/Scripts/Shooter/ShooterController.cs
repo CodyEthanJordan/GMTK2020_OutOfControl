@@ -151,7 +151,7 @@ namespace Assets.Scripts.Shooter
                 var knockAway = (collision.gameObject.transform.position - this.transform.position).normalized * KnockbackStrength;
                 p.GetComponent<Rigidbody2D>().AddForce(knockAway, ForceMode2D.Impulse);
                 //TODO: should this destroy it?
-                Destroy(collision.gameObject);
+                p.GetComponent<Powerup>().Die();
             }
         }
     }

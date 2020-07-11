@@ -5,42 +5,50 @@ using UnityEngine;
 
 public class GameplayManager : MonoSingleton<GameplayManager>
 {
-  protected GameplayManager() { }
-  public RunnerGuy Runner;
-  public CameraScroll CamRunner;
-  public Animator FadeToBlack;
-  public float RestartWaitTime = 1;
-  public float Speed = 3;
+    protected GameplayManager() { }
+    public RunnerGuy Runner;
+    public CameraScroll CamRunner;
+    public Animator FadeToBlack;
+    public int LevelNumer = 0;
+    public float RestartWaitTime = 1;
+    public float Speed = 3;
 
-  private Vector3 startingLine;
-  private Vector3 camPos;
+    private Vector3 startingLine;
+    private Vector3 camPos;
 
-  private void Start() {
-    camPos = CamRunner.transform.position;
-    startingLine = Runner.transform.position;
+    private void Start()
+    {
+        camPos = CamRunner.transform.position;
+        startingLine = Runner.transform.position;
 
-    Runner.Speed = Speed;
-    CamRunner.Speed = Speed;
-  }
+        Runner.Speed = Speed;
+        CamRunner.Speed = Speed;
+    }
 
-  public void RestartLevel() {
-    Debug.Log("Restarting level");
-    StartCoroutine(ResetLevel());
-  }
+    public void RestartLevel()
+    {
+        Debug.Log("Restarting level");
+        StartCoroutine(ResetLevel());
+    }
 
-  IEnumerator ResetLevel() {
-    FadeToBlack.SetTrigger("FadeOut");
-    Runner.Speed = 0;
-    CamRunner.Speed = 0;
-    yield return new WaitForSeconds(RestartWaitTime);
+    IEnumerator ResetLevel()
+    {
+        FadeToBlack.SetTrigger("FadeOut");
+        Runner.Speed = 0;
+        CamRunner.Speed = 0;
+        yield return new WaitForSeconds(RestartWaitTime);
 
-    CamRunner.transform.position = camPos;
-    Runner.transform.position = startingLine;
-    FadeToBlack.SetTrigger("FadeIn");
+        CamRunner.transform.position = camPos;
+        Runner.transform.position = startingLine;
+        FadeToBlack.SetTrigger("FadeIn");
 
-    yield return new WaitForSeconds(0.1f);
-    Runner.Speed = Speed;
-    CamRunner.Speed = Speed;
+        yield return new WaitForSeconds(0.1f);
+        Runner.Speed = Speed;
+        CamRunner.Speed = Speed;
+    }
 
-  }
+    public void NextLevel()
+    {
+
+    }
 }
