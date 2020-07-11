@@ -14,7 +14,10 @@ namespace Assets.Scripts.Utility
 
         public void Die()
         {
-            DestroyImmediate(this.gameObject);
+#if UNITY_EDITOR
+            //DestroyImmediate(this.gameObject);
+#endif
+            Destroy(this.gameObject);
         }
     }
 }

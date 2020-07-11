@@ -22,6 +22,11 @@ namespace Assets.Scripts.Shooter
             HP -= amount;
             if(HP <= 0)
             {
+                var power = GetComponent<Powerup>();
+                if(power)
+                {
+                    power.Die();
+                }
                 Destroy(this.gameObject);
             }
         }
