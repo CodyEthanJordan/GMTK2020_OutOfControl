@@ -9,20 +9,19 @@ public class GameplayManager : MonoSingleton<GameplayManager>
     public RunnerGuy Runner;
     public CameraScroll CamRunner;
     public Animator FadeToBlack;
-    public int LevelNumer = 0;
+    public int LevelNumber = 0;
     public float RestartWaitTime = 1;
     public float Speed = 3;
 
     private Vector3 startingLine;
     private Vector3 camPos;
 
-    private void Start()
-    {
+    private void Start() {
         camPos = CamRunner.transform.position;
         startingLine = Runner.transform.position;
 
-        Runner.Speed = Speed;
-        CamRunner.Speed = Speed;
+        Runner.SetSpeed(Speed);
+        CamRunner.SetSpeed(Speed);
     }
 
     public void RestartLevel()
@@ -31,11 +30,10 @@ public class GameplayManager : MonoSingleton<GameplayManager>
         StartCoroutine(ResetLevel());
     }
 
-    IEnumerator ResetLevel()
-    {
+    IEnumerator ResetLevel() {
         FadeToBlack.SetTrigger("FadeOut");
-        Runner.Speed = 0;
-        CamRunner.Speed = 0;
+        Runner.Stop();
+        CamRunner.Stop();
         yield return new WaitForSeconds(RestartWaitTime);
 
         CamRunner.transform.position = camPos;
@@ -43,8 +41,8 @@ public class GameplayManager : MonoSingleton<GameplayManager>
         FadeToBlack.SetTrigger("FadeIn");
 
         yield return new WaitForSeconds(0.1f);
-        Runner.Speed = Speed;
-        CamRunner.Speed = Speed;
+        Runner.SetSpeed(Speed);
+        CamRunner.SetSpeed(Speed);
     }
 
     public void NextLevel()
