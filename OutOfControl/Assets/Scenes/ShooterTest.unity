@@ -3167,7 +3167,7 @@ MonoBehaviour:
   CamRunner: {fileID: 1044857851}
   FadeToBlack: {fileID: 1576349508}
   RestartWaitTime: 1
-  Speed: 2.5
+  Speed: 1.5
 --- !u!1 &999181452
 GameObject:
   m_ObjectHideFlags: 0
@@ -3280,7 +3280,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044857846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -6.69, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2101488782}
