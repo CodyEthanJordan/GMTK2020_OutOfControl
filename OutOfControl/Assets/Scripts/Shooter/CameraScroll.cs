@@ -15,5 +15,13 @@ namespace Assets.Scripts.Shooter
         {
             this.transform.position += new Vector3(1, 0, 0) * Speed * Time.deltaTime;
         }
+
+        public void Stop() {
+            Speed = 0;
+        }
+
+        public void SetSpeed(float speed) {
+            Speed = speed;
+        }
     }
 }
