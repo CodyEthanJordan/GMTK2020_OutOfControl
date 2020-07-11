@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Shooter;
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,29 +11,27 @@ namespace Assets.Scripts.Runner
 {
     public class RunnerGuy : MonoBehaviour
     {
-        public float Speed = 1;
+        public float BaseSpeed = 1f;
+        private float Speed = 0f;
+        public float SpeedBoostIncrease = 2f;
+        public float SpeedBoostDuration = 1f;
 
         private Rigidbody2D rb;
 
-        private void Start()
-        {
+        private void Start() {
             rb = GetComponent<Rigidbody2D>();
         }
 
-        private void FixedUpdate()
-        {
+        private void FixedUpdate() {
             rb.velocity = new Vector2(Speed, rb.velocity.y);
         }
 
-        public void Jump(float strength)
-        {
+        public void Jump(float strength) {
             rb.AddForce(Vector2.up * strength, ForceMode2D.Impulse);
         }
 
-        public void ActivatePowerup(PowerupType type, Powerup power)
-        {
-            switch (type)
-            {
+        public void ActivatePowerup(PowerupType type, Powerup power) {
+            switch (type) {
                 case PowerupType.Jump:
                     Jump(power.Strength * rb.gravityScale);
                     break;
@@ -41,14 +39,25 @@ namespace Assets.Scripts.Runner
                     rb.gravityScale *= -1;
                     break;
                 case PowerupType.Dash:
-                    var pos2d = new Vector2(this.transform.position.x, this.transform.position.y);
-                    rb.MovePosition(Vector2.right * power.Strength + pos2d);
+                    StartCoroutine(SpeedBoost());
                     break;
                 default:
                     break;
             }
         }
 
+        IEnumerator SpeedBoost() {
+            Speed = SpeedBoostIncrease;
+            yield return new WaitForSeconds(SpeedBoostDuration);
+            Speed = BaseSpeed;
+        }
 
+        public void Stop() {
+            Speed = 0;
+        }
+
+        public void SetSpeed(float speed) {
+            Speed = speed;
+        }
     }
 }
