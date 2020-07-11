@@ -9,6 +9,7 @@ public class GameplayManager : MonoSingleton<GameplayManager>
     public RunnerGuy Runner;
     public CameraScroll CamRunner;
     public Animator FadeToBlack;
+    public int LevelNumber = 0;
     public float RestartWaitTime = 1;
     public float Speed = 3;
 
@@ -23,7 +24,8 @@ public class GameplayManager : MonoSingleton<GameplayManager>
         CamRunner.SetSpeed(Speed);
     }
 
-    public void RestartLevel() {
+    public void RestartLevel()
+    {
         Debug.Log("Restarting level");
         StartCoroutine(ResetLevel());
     }
@@ -41,5 +43,10 @@ public class GameplayManager : MonoSingleton<GameplayManager>
         yield return new WaitForSeconds(0.1f);
         Runner.SetSpeed(Speed);
         CamRunner.SetSpeed(Speed);
+    }
+
+    public void NextLevel()
+    {
+
     }
 }
