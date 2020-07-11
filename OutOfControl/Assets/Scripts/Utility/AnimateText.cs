@@ -18,7 +18,7 @@ namespace Assets.Scripts.Utility
         private void Start()
         {
             text = GetComponent<TextMeshProUGUI>();
-            ShowText("Test");
+            ShowText("You've met with a terrible fate haven't you");
         }
 
         public void ShowText(string message)
@@ -35,7 +35,7 @@ namespace Assets.Scripts.Utility
                     string alphaTag = "<alpha=#" + Mathf.RoundToInt(255 * j / ((float)Steps) + 1).ToString("X2") + ">";
                     text.text = message.Substring(0, i) + "<voffset=" + (1.0 - j/((float)Steps)) + "em>"
                         + alphaTag + message[i] + "</voffset>";
-                    yield return new WaitForSeconds(0.03f);
+                    yield return new WaitForSeconds(0.01f);
                 }
             }
 
