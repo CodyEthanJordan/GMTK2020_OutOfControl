@@ -9,6 +9,7 @@ namespace Assets.Scripts.Shooter
 {
     public class RunAroundLikeAnIdiot : MonoBehaviour
     {
+        public bool runAroundLikeAnIdiot;
         public float Speed = 10;
         public float JumpPower = 10;
         public float JumpTime = 3;
@@ -26,21 +27,21 @@ namespace Assets.Scripts.Shooter
 
         private void FixedUpdate()
         {
+        if (runAroundLikeAnIdiot) {
             rb.velocity = new Vector2(Speed * Direction, rb.velocity.y);
 
             jumpTimer -= Time.fixedDeltaTime;
-            if(jumpTimer <= 0)
-            {
+            if (jumpTimer <= 0) {
                 rb.AddForce(Vector2.up * JumpPower, ForceMode2D.Impulse);
                 jumpTimer = UnityEngine.Random.Range(JumpTime / 2, 2 * JumpTime);
             }
 
             turnTimer -= Time.fixedDeltaTime;
-            if(turnTimer <= 0)
-            {
+            if (turnTimer <= 0) {
                 Direction *= -1;
                 turnTimer = TurnaroundTime;
             }
+          }
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
