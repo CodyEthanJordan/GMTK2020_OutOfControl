@@ -36,14 +36,16 @@ namespace Assets.Scripts.Shooter
         private bool goingRight = true;
         private CameraShake cameraShake;
 
-        private void Awake() {
-            cameraShake = ShooterCamera.GetComponent<CameraShake>();
-        }
-
         private void Start() {
             rb = GetComponent<Rigidbody2D>();
             sr = GetComponent<SpriteRenderer>();
             spawnPoint = bulletSpawn.transform.position;
+            if(ShooterCamera == null)
+            {
+                //test?
+                ShooterCamera = GameObject.Find("ShooterCamera");
+            }
+            cameraShake = ShooterCamera.GetComponent<CameraShake>();
         }
 
         private void Update() {
@@ -79,7 +81,7 @@ namespace Assets.Scripts.Shooter
         public bool Grounded {
             get {
                 var hit = Physics2D.OverlapCircleAll(groundCheck.position, 0.2f);
-                if (hit is null || hit.Length == 0) {
+                if (hit == null || hit.Length == 0) {
                     return false;
                 } else if (hit.Any(h => h.gameObject.CompareTag("Terrain"))) {
                     return true;
