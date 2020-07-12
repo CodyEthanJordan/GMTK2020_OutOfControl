@@ -273,8 +273,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 366, y: 280}
-  m_SizeDelta: {x: 30.54773, y: 29.412086}
+  m_AnchoredPosition: {x: 0, y: -181.69}
+  m_SizeDelta: {x: 48.54782, y: 31.866646}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &291278861
 MonoBehaviour:
@@ -653,7 +653,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x
+  m_text: Quit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -723,7 +723,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -0.5999756, w: 0}
   m_textInfo:
     textComponent: {fileID: 765340120}
-    characterCount: 1
+    characterCount: 4
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -1108,14 +1108,14 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2097298007}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7b7e03a96aabf0b4391d41f7409d25cc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a5115df53d6896049845064e0bb5897d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.352
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
