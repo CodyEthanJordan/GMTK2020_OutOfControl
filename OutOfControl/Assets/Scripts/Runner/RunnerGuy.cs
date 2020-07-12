@@ -37,6 +37,12 @@ namespace Assets.Scripts.Runner
             rb.velocity = new Vector2(Speed, rb.velocity.y);
         }
 
+        internal void RestartLevel()
+        {
+            rb.gravityScale = 1;
+            sr.flipY = false;
+        }
+
         public void Jump(float strength) {
             rb.AddForce(Vector2.up * strength, ForceMode2D.Impulse);
         }
