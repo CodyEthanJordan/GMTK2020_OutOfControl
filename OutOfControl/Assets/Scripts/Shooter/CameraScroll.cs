@@ -12,12 +12,17 @@ namespace Assets.Scripts.Shooter
         public GameObject TargetToFollow;
         private CameraTrack cameraTrack; 
 
-        private void Awake() {
+        private void Start() {
+            if(TargetToFollow == null)
+            {
+                TargetToFollow = GameObject.FindGameObjectWithTag("Runner");
+            }
             if (cameraTrack == null) cameraTrack = TargetToFollow.GetComponent<CameraTrack>();
         }
 
         private void Update() {
-            this.transform.position = TargetToFollow.transform.position;
+            var pos = new Vector3(TargetToFollow.transform.position.x, TargetToFollow.transform.position.y, this.transform.position.z);
+            this.transform.position = pos;
         }
 
         public void Stop() {
