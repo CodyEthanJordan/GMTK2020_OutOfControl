@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -62390771
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -251080932029881112, guid: 6f80f1b40633c874495727ac33cac194,
     type: 3}
@@ -139,6 +139,8 @@ MonoBehaviour:
   Type: 1
   Strength: 7
   PopupPrefab: {fileID: 4993922494600166365, guid: 6224d786a9724ba43a5691ebc9696b01,
+    type: 3}
+  SplatPrefab: {fileID: 1123692379838201375, guid: 26049bf60a61f024c8cc9764cf06e4c0,
     type: 3}
   runner: {fileID: 0}
   spawner: {fileID: 0}
