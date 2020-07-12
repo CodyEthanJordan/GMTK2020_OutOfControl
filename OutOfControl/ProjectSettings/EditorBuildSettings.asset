@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/MainMenu.unity
     guid: 72c9d559a0fa2224b9d26e73d80b40d1
   - enabled: 1
-    path: Assets/Scenes/Game/ShooterTest 1.unity
-    guid: 9bacd5d5d53b07041a37e973cf67f162
+    path: Assets/Scenes/Game/level 1Tutorial decent into the disco.unity
+    guid: 4a8baf1b667f72440bf3a17c7941e80d
+  - enabled: 1
+    path: Assets/Scenes/Game/2Subway.unity
+    guid: da30346970255ef46a479bb863067960
+  - enabled: 1
+    path: Assets/Scenes/Game/3Mzackland.unity
+    guid: 0f6a9de846def3a42afc1562724d16fc
+  - enabled: 1
+    path: Assets/Scenes/Game/4ascention.unity
+    guid: a8ab0a2aa742e154a9bf6dda4adec3f7
   m_configObjects: {}

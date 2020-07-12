@@ -3428,6 +3428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Runner: {fileID: 153620676}
   CamRunner: {fileID: 0}
+  NextScene: Credits
   FadeToBlack: {fileID: 1576349508}
   LevelNumber: 0
   RestartWaitTime: 1
