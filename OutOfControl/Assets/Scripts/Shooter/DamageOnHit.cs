@@ -37,7 +37,7 @@ namespace Assets.Scripts.Shooter
                     Destroy(this.gameObject);
                 }
             }
-            else
+            else if(!collision.gameObject.CompareTag("Bullet"))
             {
                 Destroy(this.gameObject);
             }
