@@ -103,7 +103,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -62390771
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2539235481941961364, guid: 3012f45f4fe1e6b44822872354025ba2,
     type: 3}
@@ -133,7 +133,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 327a573cdacc37f44b41e315317a0f2a, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -185,6 +185,7 @@ MonoBehaviour:
     type: 3}
   ControlLossTime: 1
   InControl: 1
+  ShooterCamera: {fileID: 0}
   groundCheck: {fileID: 7027215335129374431}
   bulletSpawn: {fileID: 5841724527730406339}
 --- !u!1 &8622894724704885023
