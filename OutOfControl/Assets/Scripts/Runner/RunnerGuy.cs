@@ -20,10 +20,12 @@ namespace Assets.Scripts.Runner
         private const int RUNNER_LAYER = 19;
 
         private Rigidbody2D rb;
+        private SpriteRenderer sr;
 
     
         private void Start() {
             rb = GetComponent<Rigidbody2D>();
+            sr = GetComponent<SpriteRenderer>();
             if(RunnerCamera == null)
             {
                 RunnerCamera = GameObject.Find("RunnerCamera");
@@ -33,6 +35,12 @@ namespace Assets.Scripts.Runner
 
         private void FixedUpdate() {
             rb.velocity = new Vector2(Speed, rb.velocity.y);
+        }
+
+        internal void RestartLevel()
+        {
+            rb.gravityScale = 1;
+            sr.flipY = false;
         }
 
         public void Jump(float strength) {
@@ -46,6 +54,7 @@ namespace Assets.Scripts.Runner
                     break;
                 case PowerupType.Antigrav:
                     rb.gravityScale *= -1;
+                    sr.flipY = rb.gravityScale == -1;
                     break;
                 case PowerupType.Dash:
                     StartCoroutine(SpeedBoost());

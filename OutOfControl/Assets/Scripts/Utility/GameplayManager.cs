@@ -33,6 +33,7 @@ public class GameplayManager : MonoSingleton<GameplayManager>
     {
         Debug.Log("Restarting level");
         StartCoroutine(ResetLevel());
+        Runner.RestartLevel();
     }
 
     IEnumerator ResetLevel() {
@@ -40,6 +41,11 @@ public class GameplayManager : MonoSingleton<GameplayManager>
         Runner.Stop();
         CamRunner.Stop();
         yield return new WaitForSeconds(RestartWaitTime);
+
+        foreach (var powerup in GameObject.FindGameObjectsWithTag("Powerup"))
+        {
+            Destroy(powerup);
+        }
 
         CamRunner.transform.position = camPos;
         Runner.transform.position = startingLine;
