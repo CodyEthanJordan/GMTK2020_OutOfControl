@@ -7,7 +7,7 @@ public class GameplayManager : MonoSingleton<GameplayManager>
 {
     protected GameplayManager() { }
     public RunnerGuy Runner;
-    public CameraScroll CamRunner;
+    public CameraTrack CamRunner;
     public Animator FadeToBlack;
     public int LevelNumber = 0;
     public float RestartWaitTime = 1;

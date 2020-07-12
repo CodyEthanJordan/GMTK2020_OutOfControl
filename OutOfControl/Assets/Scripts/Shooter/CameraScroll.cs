@@ -13,7 +13,7 @@ namespace Assets.Scripts.Shooter
         private CameraTrack cameraTrack; 
 
         private void Start() {
-            if(TargetToFollow == null)
+         if(TargetToFollow == null)
             {
                 TargetToFollow = GameObject.FindGameObjectWithTag("Runner");
             }
@@ -22,7 +22,7 @@ namespace Assets.Scripts.Shooter
 
         private void Update() {
             var pos = new Vector3(TargetToFollow.transform.position.x, TargetToFollow.transform.position.y, this.transform.position.z);
-            this.transform.position = pos;
+            //this.transform.position = pos;
         }
 
         public void Stop() {
