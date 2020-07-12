@@ -69,7 +69,7 @@ namespace Assets.Scripts.Runner
             Speed = speed;
         }
         private void OnCollisionEnter2D(Collision2D collision) {
-            Debug.Log("Zoom now");
+            //Debug.Log("Zoom now");
             if (collision.gameObject && collision.gameObject.layer == RUNNER_LAYER) { cameraZoom.quickZoom(); }
         }
     }
