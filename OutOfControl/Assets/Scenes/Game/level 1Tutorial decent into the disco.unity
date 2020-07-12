@@ -142,7 +142,7 @@ PrefabInstance:
     - target: {fileID: 7749232599533113338, guid: 58663cc370b35fe4eb83ad952ab1e39f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.65
+      value: -0.47
       objectReference: {fileID: 0}
     - target: {fileID: 7749232599533113338, guid: 58663cc370b35fe4eb83ad952ab1e39f,
         type: 3}
@@ -568,7 +568,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534565929
 GameObject:
@@ -672,7 +672,7 @@ Transform:
   m_Children:
   - {fileID: 1634861087}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &707121087
 GameObject:
@@ -3426,7 +3426,7 @@ PrefabInstance:
     - target: {fileID: 547367364864529653, guid: 58663cc370b35fe4eb83ad952ab1e39f,
         type: 3}
       propertyPath: Message
-      value: 'Bro there''s another one! '
+      value: Bro there's another one! Hit the jump!
       objectReference: {fileID: 0}
     - target: {fileID: 6333523380095485021, guid: 58663cc370b35fe4eb83ad952ab1e39f,
         type: 3}
@@ -9001,7 +9001,7 @@ PrefabInstance:
     - target: {fileID: 7749232599533113338, guid: 58663cc370b35fe4eb83ad952ab1e39f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.63
+      value: 9.94
       objectReference: {fileID: 0}
     - target: {fileID: 7749232599533113338, guid: 58663cc370b35fe4eb83ad952ab1e39f,
         type: 3}
@@ -9379,7 +9379,7 @@ PrefabInstance:
     - target: {fileID: 547367364864529653, guid: 58663cc370b35fe4eb83ad952ab1e39f,
         type: 3}
       propertyPath: Message
-      value: AD move, Space jump, J shoot
+      value: AD move, Space jump, left click to shoot
       objectReference: {fileID: 0}
     - target: {fileID: 6333523380095485021, guid: 58663cc370b35fe4eb83ad952ab1e39f,
         type: 3}
