@@ -19,11 +19,6 @@ namespace Assets.Scripts.Shooter
             {
                 SpawnPoint.Add(child);
             }
-
-            Spawn(PowerupType.Jump);
-            Spawn(PowerupType.Jump);
-            Spawn(PowerupType.Antigrav);
-            Spawn(PowerupType.Dash);
         }
 
         public void HasDied(Powerup dead)
