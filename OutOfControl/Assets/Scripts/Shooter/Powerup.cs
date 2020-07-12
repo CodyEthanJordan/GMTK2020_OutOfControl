@@ -24,11 +24,11 @@ namespace Assets.Scripts.Shooter
 
         private void Start()
         {
-            if(runner is null)
+            if(runner == null)
             {
                 runner = GameObject.Find("Runner").GetComponent<RunnerGuy>();
             }
-            if(spawner is null)
+            if(spawner == null)
             {
                 spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
             }

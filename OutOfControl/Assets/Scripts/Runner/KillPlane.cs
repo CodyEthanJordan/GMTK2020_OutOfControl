@@ -15,7 +15,7 @@ namespace Assets.Scripts.Runner
 
         private void Start()
         {
-            if(gm is null)
+            if(gm == null)
             {
                 gm = GameObject.Find("GameplayManager").GetComponent<GameplayManager>();
             }

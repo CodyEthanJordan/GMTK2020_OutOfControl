@@ -21,12 +21,14 @@ namespace Assets.Scripts.Runner
 
         private Rigidbody2D rb;
 
-        private void Awake() {
-            cameraZoom = RunnerCamera.GetComponent<CameraZoom>();
-        }
-
+    
         private void Start() {
             rb = GetComponent<Rigidbody2D>();
+            if(RunnerCamera == null)
+            {
+                RunnerCamera = GameObject.Find("RunnerCamera");
+            }
+            cameraZoom = RunnerCamera.GetComponent<CameraZoom>();
         }
 
         private void FixedUpdate() {

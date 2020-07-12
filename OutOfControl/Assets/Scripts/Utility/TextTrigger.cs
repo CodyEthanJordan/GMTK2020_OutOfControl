@@ -14,7 +14,7 @@ namespace Assets.Scripts.Utility
 
         private void Start()
         {
-            if(Text is null)
+            if(Text == null)
             {
                 Text = GameObject.Find("Text").GetComponent<AnimateText>();
             }
