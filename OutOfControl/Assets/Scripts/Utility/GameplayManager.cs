@@ -17,6 +17,10 @@ public class GameplayManager : MonoSingleton<GameplayManager>
     private Vector3 camPos;
 
     private void Start() {
+        if(CamRunner == null)
+        {
+            CamRunner = GameObject.Find("RunnerCamera").GetComponent<CameraTrack>();
+        }
         camPos = CamRunner.transform.position;
         startingLine = Runner.transform.position;
 
