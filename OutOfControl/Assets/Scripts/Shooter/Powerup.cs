@@ -16,6 +16,7 @@ namespace Assets.Scripts.Shooter
         public float Strength = 10;
 
         public GameObject PopupPrefab;
+        public GameObject SplatPrefab;
 
         [SerializeField]
         private RunnerGuy runner;
@@ -40,6 +41,7 @@ namespace Assets.Scripts.Shooter
             popup.GetComponent<Popup>().PopupText.text = Type.ToString();
             runner.ActivatePowerup(this.Type, this);
             spawner.HasDied(this);
+            Instantiate(SplatPrefab, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
 

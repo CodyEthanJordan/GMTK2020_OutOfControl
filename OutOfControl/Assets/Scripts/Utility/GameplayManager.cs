@@ -2,12 +2,14 @@
 using Assets.Scripts.Shooter;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameplayManager : MonoSingleton<GameplayManager>
 {
     protected GameplayManager() { }
     public RunnerGuy Runner;
     public CameraTrack CamRunner;
+    public string NextScene;
     public Animator FadeToBlack;
     public int LevelNumber = 0;
     public float RestartWaitTime = 1;
@@ -58,6 +60,13 @@ public class GameplayManager : MonoSingleton<GameplayManager>
 
     public void NextLevel()
     {
+        FadeToBlack.SetTrigger("FadeOut");
+        StartCoroutine(LoadNextLevel());
+    }
 
+    IEnumerator LoadNextLevel()
+    {
+        yield return new WaitForSeconds(0.3f);
+        SceneManager.LoadScene(NextScene);
     }
 }
