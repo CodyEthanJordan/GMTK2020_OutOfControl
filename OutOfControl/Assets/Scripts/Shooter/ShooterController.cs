@@ -18,6 +18,7 @@ namespace Assets.Scripts.Shooter
         public GameObject BulletPrefab;
         public float ControlLossTime = 1;
         public bool InControl = true;
+        public GameObject ShooterCamera;
 
         [SerializeField]
         private Transform groundCheck;
@@ -33,61 +34,54 @@ namespace Assets.Scripts.Shooter
         private float controlTimer = float.NegativeInfinity;
         private Vector3 spawnPoint;
         private bool goingRight = true;
+        private CameraShake cameraShake;
 
-        private void Start()
-        {
+        private void Awake() {
+            cameraShake = ShooterCamera.GetComponent<CameraShake>();
+        }
+
+        private void Start() {
             rb = GetComponent<Rigidbody2D>();
             sr = GetComponent<SpriteRenderer>();
             spawnPoint = bulletSpawn.transform.position;
         }
 
-        private void Update()
-        {
-            if(InControl)
-            {
+        private void Update() {
+            if (InControl) {
                 HandleInput();
             }
         }
 
-        private void FixedUpdate()
-        {
+        private void FixedUpdate() {
             rb.velocity = new Vector2(move.x * Speed, rb.velocity.y);
-            if(jump)
-            {
-                if(Grounded)
-                {
+            if (jump) {
+                if (Grounded) {
                     rb.AddForce(Vector2.up * Jump, ForceMode2D.Impulse);
                 }
 
                 jump = false;
             }
         }
-        
-        public void OutOfControl()
-        {
+
+        public void OutOfControl() {
             sr.color = Color.red;
             InControl = false;
             StartCoroutine(RegainingControl());
+            cameraShake.quickShake();
         }
 
-        IEnumerator RegainingControl()
-        {
+        IEnumerator RegainingControl() {
             yield return new WaitForSeconds(ControlLossTime);
             sr.color = Color.white;
             InControl = true;
         }
 
-        public bool Grounded
-        {
-            get
-            {
+        public bool Grounded {
+            get {
                 var hit = Physics2D.OverlapCircleAll(groundCheck.position, 0.2f);
-                if(hit is null || hit.Length == 0)
-                {
+                if (hit is null || hit.Length == 0) {
                     return false;
-                }
-                else if(hit.Any(h => h.gameObject.CompareTag("Terrain")))
-                {
+                } else if (hit.Any(h => h.gameObject.CompareTag("Terrain"))) {
                     return true;
                 }
 
@@ -95,57 +89,43 @@ namespace Assets.Scripts.Shooter
             }
         }
 
-        private void HandleInput()
-        {
+        private void HandleInput() {
             float x = Input.GetAxisRaw("Horizontal");
             float y = Input.GetAxisRaw("Vertical");
             move = new Vector2(x, 0).normalized;
 
-            if(x >= 0.2)
-            {
+            if (x >= 0.2) {
                 goingRight = true;
-            }
-            else if (x <= -0.2)
-            {
+            } else if (x <= -0.2) {
                 goingRight = false;
             }
 
-            if(Input.GetButtonDown("Jump"))
-            {
+            if (Input.GetButtonDown("Jump")) {
                 jump = true;
             }
 
             shootTimer -= Time.deltaTime;
-            if(Input.GetButton("Fire") && shootTimer <= 0)
-            {
+            if (Input.GetButton("Fire") && shootTimer <= 0) {
                 shootTimer = ShootSpeed;
                 Vector3 pos;
-                if(goingRight)
-                {
+                if (goingRight) {
                     pos = bulletSpawn.transform.position;
-                }
-                else
-                {
+                } else {
                     pos = -this.transform.position + bulletSpawn.transform.position;
                     pos = this.transform.position - 2 * pos;
                 }
                 var go = Instantiate(BulletPrefab, pos, Quaternion.identity);
-                if(goingRight)
-                {
+                if (goingRight) {
                     go.GetComponent<Rigidbody2D>().AddForce(Vector2.right * BulletSpeed, ForceMode2D.Impulse);
-                }
-                else
-                {
+                } else {
 
                     go.GetComponent<Rigidbody2D>().AddForce(Vector2.left * BulletSpeed, ForceMode2D.Impulse);
                 }
             }
 
         }
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if(collision.gameObject.CompareTag("Powerup") && InControl)
-            {
+        private void OnCollisionEnter2D(Collision2D collision) {
+            if (collision.gameObject.CompareTag("Powerup") && InControl) {
                 var p = collision.gameObject;
                 OutOfControl();
                 var knockAway = (collision.gameObject.transform.position - this.transform.position).normalized * KnockbackStrength;

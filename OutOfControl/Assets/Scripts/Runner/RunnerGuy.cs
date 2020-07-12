@@ -15,8 +15,15 @@ namespace Assets.Scripts.Runner
         private float Speed = 0f;
         public float SpeedBoostIncrease = 2f;
         public float SpeedBoostDuration = 1f;
+        public GameObject RunnerCamera;
+        private CameraZoom cameraZoom;
+        private const int RUNNER_LAYER = 19;
 
         private Rigidbody2D rb;
+
+        private void Awake() {
+            cameraZoom = RunnerCamera.GetComponent<CameraZoom>();
+        }
 
         private void Start() {
             rb = GetComponent<Rigidbody2D>();
@@ -58,6 +65,10 @@ namespace Assets.Scripts.Runner
 
         public void SetSpeed(float speed) {
             Speed = speed;
+        }
+        private void OnCollisionEnter2D(Collision2D collision) {
+            Debug.Log("Zoom now");
+            if (collision.gameObject && collision.gameObject.layer == RUNNER_LAYER) { cameraZoom.quickZoom(); }
         }
     }
 }
