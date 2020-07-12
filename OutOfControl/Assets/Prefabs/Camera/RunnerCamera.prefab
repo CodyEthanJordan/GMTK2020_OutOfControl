@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1162267240086720177}
   - component: {fileID: 1162267240086720190}
   - component: {fileID: 1162267240086720179}
-  - component: {fileID: 1162267240086720178}
   - component: {fileID: 3567619689919573776}
+  - component: {fileID: 983977351}
   m_Layer: 0
   m_Name: RunnerCamera
   m_TagString: MainCamera
@@ -119,19 +119,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &1162267240086720178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162267240086720191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff8a42c6f1e33bf4684a7ddbca76aba7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TargetToFollow: {fileID: 0}
 --- !u!114 &3567619689919573776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,9 +131,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b4adb561dd4e24f883908176127f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quickZoomSize: 3
+  quickZoomSize: 5
   quickZoomDuration: 1
   originalProjectionSize: 5
+--- !u!114 &983977351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162267240086720191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caebcf96b4a1a5e469a8a67b7618a5de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 5
 --- !u!1 &1162267241110315460
 GameObject:
   m_ObjectHideFlags: 0
